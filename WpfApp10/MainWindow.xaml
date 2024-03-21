@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp10"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="700"
+        MinHeight="200" MinWidth="700"
+        MaxHeight="1080" MaxWidth="1050">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="UrlTextBox" Grid.Row="0" Margin="10" Text="Enter URL:" GotFocus="UrlTextBox_GotFocus" LostFocus="UrlTextBox_LostFocus"/>
+        <ComboBox x:Name="QualityComboBox" Grid.Row="1" Margin="10" SelectedIndex="0">
+            <ComboBoxItem>720p</ComboBoxItem>
+            <ComboBoxItem>360p</ComboBoxItem>
+        </ComboBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="selectFolderButton" Margin="10" Content="Select folder to extract to" Click="selectFolderButton_Click"/>
+            <Button x:Name="downloadButton" Grid.Column="1" IsEnabled="False" Margin="10" Content="Download" Click="downloadButton_Click"/>
+        </Grid>
+        <TextBlock x:Name="ResultTextBlock" Grid.Row="3" Margin="10" TextWrapping="Wrap" VerticalAlignment="Center"/>
+        <MediaElement x:Name="VideoPlayer" Grid.Row="4" Stretch="Fill" LoadedBehavior="Manual" MediaOpened="VideoPlayer_MediaOpened"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="playButton" Margin="10" Content="Play" Visibility="Hidden" Click="playButton_Click"/>
+            <Button x:Name="againButton" Grid.Column="1" Margin="10" Content="Again" Visibility="Hidden" Click="againButton_Click"/>
+        </Grid>
+    </Grid>
+</Window>
